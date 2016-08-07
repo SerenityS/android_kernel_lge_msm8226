@@ -82,9 +82,7 @@ obj-$(CONFIG_TOUCHSCREEN_CY8C_TS)	+= cy8c_ts.o
 obj-$(CONFIG_TOUCHSCREEN_CYTTSP_I2C_QC)       += cyttsp-i2c-qc.o
 obj-$(CONFIG_TOUCHSCREEN_AGS04_TOUCH_KEYPAD)  += ags04_touch_keypad.o
 obj-$(CONFIG_TOUCHSCREEN_FT5X06)	+= ft5x06_ts.o
-ifneq ($(filter aka_skt_kr aka_kt_kr aka_lgu_kr aka_cmo_cn aka_cto_cn,$(TARGET_PRODUCT)),)
-#obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI4)		+= synaptics_i2c_rmi4.o
-else
+ifndef CONFIG_MACH_MSM8926_AKA_KR
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_DSX_RMI4_DEV)	+= synaptics_rmi_dev.o
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_DSX_FW_UPDATE) 	+= synaptics_fw_update.o
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI4)		+= synaptics_i2c_rmi4.o
@@ -124,7 +122,7 @@ obj-$(CONFIG_TOUCHSCREEN_LGE_TOUCHCORE)		+= lge_ts_core.o
 obj-$(CONFIG_TOUCHSCREEN_LGE_MELFAS)        += lge_ts_melfas.o
 obj-$(CONFIG_TOUCHSCREEN_LGE_MELFAS)        += lge_ts_mms100s.o
 obj-$(CONFIG_TOUCHSCREEN_LGE_MELFAS)        += lge_ts_mms100a.o
-ifneq ($(filter aka_skt_kr aka_kt_kr aka_lgu_kr aka_cmo_cn aka_cto_cn,$(TARGET_PRODUCT)),)
+ifdef CONFIG_MACH_MSM8926_AKA_KR
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI4) += lge_touch_core_aka.o
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI4) += touch_synaptics_aka.o
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI4) += touch_synaptics_proximity.o

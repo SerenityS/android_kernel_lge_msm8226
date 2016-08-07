@@ -113,6 +113,9 @@ ifeq ($(CONFIG_MACH_LGE),y)
 	dtb-$(CONFIG_MACH_MSM8926_G2M_GLOBAL)	      +=  msm8226-g2mds.dtb \
 						          msm8226-v1-g2m.dtb \
 						          msm8226-v2-g2m.dtb
+
+	dtb-$(CONFIG_MACH_MSM8926_AKA_KR)	      +=  msm8226-aka.dtb
+
 else # not CONFIG_MACH_LGE
 	dtb-$(CONFIG_ARCH_MSM8226)	+= msm8226-sim.dtb
 	dtb-$(CONFIG_ARCH_MSM8226)	+= msm8226-fluid.dtb
