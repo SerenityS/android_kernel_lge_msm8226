@@ -2353,12 +2353,12 @@ static ssize_t store_tap_to_wake(struct i2c_client *client, const char *buf, siz
     sscanf(buf, "%d", &status);
 
     if (touch_device_func->lpwg) {
-        mutex_lock(&ts->pdata->thread_lock);
+        mutex_lock(&ts->thread_lock);
 
         TOUCH_DEBUG(DEBUG_BASE_INFO, "TAP2WAKE: %s\n", (status) ? "Enabled" : "Disabled");
         touch_device_func->lpwg(client, LPWG_ENABLE, status, NULL);
 
-        mutex_unlock(&ts->pdata->thread_lock);
+        mutex_unlock(&ts->thread_lock);
     }
 
     return count;
