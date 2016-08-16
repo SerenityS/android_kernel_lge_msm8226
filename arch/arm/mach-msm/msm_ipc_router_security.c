@@ -292,7 +292,14 @@ int msm_ipc_check_send_permissions(void *data)
 
         /* Ugly hack: Allow all callers in the QCOM_ONCRPC group to pass,
          *            this will allow the rild to work under CM */
+
 	if (in_egroup_p(3009)) // AID_QCOM_ONCRPC
+		return 1;
+
+        /* Ugly hack: Allow all callers in the SENSORS group to pass,
+         *            this will allow the sensors to work under CM */
+
+	if (in_egroup_p(3011)) // AID_SENSORS
 		return 1;
 
 	return 0;
