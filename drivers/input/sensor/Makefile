@@ -13,9 +13,6 @@ endif
 
 EXTRA_CFLAGS += -DCONFIG_BMA_USE_PLATFORM_DATA
 
-EXTRA_CFLAGS += -DBMM_USE_BASIC_I2C_FUNC
-EXTRA_CFLAGS += -DCONFIG_BMM_USE_PLATFORM_DATA
-
 ifeq ($(CONFIG_SENSORS_BMA2X2), y)
 	EXTRA_CFLAGS += -DBMA2X2_ACCEL_CALIBRATION
 endif
@@ -24,9 +21,10 @@ ifeq ($(CONFIG_SENSOR_K2DH), y)
 	EXTRA_CFLAGS += -DK3DH_ACCEL_CALIBRATION
 endif
 
-obj-$(CONFIG_SENSORS_BMA2X2)    += bma2x2_driver.o
-obj-$(CONFIG_SENSORS_BMM050)    += bmm050_driver.o bmm050.o
-obj-$(CONFIG_SENSORS_BMC150_COMMON)    += bst_sensor_common.o
+obj-$(CONFIG_SENSORS_BMA2X2) += bstclass.o
+obj-$(CONFIG_SENSORS_BMA2X2) += bma2x2.o
+obj-$(CONFIG_SENSORS_BMG) += bmg160_driver.o bmg160.o
+obj-$(CONFIG_SENSORS_BMM050) += bmm050_driver.o bmm050.o
 obj-$(CONFIG_SENSORS_K2DH)    += lis2dh_acc.o
 obj-$(CONFIG_SENSOR_K2DH)       += k3dh_acc.o
 obj-$(CONFIG_SENSOR_AK09911)    += akm09911.o

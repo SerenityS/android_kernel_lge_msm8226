@@ -532,6 +532,7 @@
 			regulator-min-microvolt = <2850000>;
 			regulator-max-microvolt = <2850000>;
 			qcom,init-voltage = <2850000>;
+			regulator-always-on;
 			status = "okay";
 		};
 	};
@@ -556,4 +557,11 @@
 			status = "okay";
 		};
 	};
+        rpm-regulator-vsa1 {
+                status = "okay";
+                pm8226_lvs1: regulator-lvs1 {
+                        regulator-always-on;
+                        status = "okay";
+                };
+        };
 };
